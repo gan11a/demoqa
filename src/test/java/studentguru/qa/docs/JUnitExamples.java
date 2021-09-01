@@ -1,8 +1,8 @@
-package studentguru.qa;
+package studentguru.qa.docs;
 
 import org.junit.jupiter.api.*;
 
-public class DemoQAStudentTest {
+public class JUnitExamples {
     @BeforeAll
     static void beforeAll(){
         System.out.println("Before all worlds!");
