@@ -24,7 +24,5 @@ public class JUnitExamples {
         System.out.println("Hello World");
     }
     @Test
-    void secondTest() {
-        System.out.println("Hello World (second)");
-    }
+    void secondTest() {System.out.println("Hello World (second)");}
 }

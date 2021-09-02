@@ -31,9 +31,7 @@ public class PracticeFormTest {
         $("#state").find("input").setValue("NCR").pressEnter();
         $("#city").find("input").setValue("Gurgaon").pressEnter();
         $("#submit").scrollTo().click();
-
         $(".modal-content").shouldBe(Condition.visible);
-
         $x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("gan1a1 gan1a2"));
         $x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("gan1a@test.com"));
         $x("//td[text()='Gender']/following-sibling::td").shouldHave(text("Male"));
