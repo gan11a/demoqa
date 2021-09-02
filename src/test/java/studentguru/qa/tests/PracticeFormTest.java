@@ -1,28 +1,18 @@
 package studentguru.qa.tests;
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-
 public class PracticeFormTest {
     @BeforeAll
     static void beforeAll(){
         Configuration.startMaximized=true;
 }
-
-    @AfterEach
-    void afterEach(){
-        System.out.println("Test Done; EasterEggConfirmation: https://giphy.com/gifs/diy-egg-teen-vogue-nW9iOmXWriQU0");
-    }
     @Test
-
     void practiceFromTest(){
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue("gan1a1");
@@ -42,11 +32,7 @@ public class PracticeFormTest {
         $("#city").find("input").setValue("Gurgaon").pressEnter();
         $("#submit").scrollTo().click();
 
-
-
         $(".modal-content").shouldBe(Condition.visible);
-
-
 
         $x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("gan1a1 gan1a2"));
         $x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("gan1a@test.com"));
@@ -58,10 +44,5 @@ public class PracticeFormTest {
         $x("//td[text()='Picture']/following-sibling::td").shouldHave(text("test.jpg"));
         $x("//td[text()='Address']/following-sibling::td").shouldHave(text("Pushkina|Kolotushkina"));
         $x("//td[text()='State and City']/following-sibling::td").shouldHave(text("NCR Gurgaon"));
-
-
-
-
-
     }
 }
