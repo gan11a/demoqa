@@ -19,7 +19,7 @@ public class PracticeFormTest {
 
     @AfterEach
     void afterEach(){
-        System.out.println("Test Done; EasterEggConfirmation:");
+        System.out.println("Test Done; EasterEggConfirmation: https://giphy.com/gifs/diy-egg-teen-vogue-nW9iOmXWriQU0");
     }
     @Test
 
