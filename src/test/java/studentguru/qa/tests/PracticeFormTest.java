@@ -7,11 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-public class PracticeFormTest {
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.startMaximized=true;
-}
+public class PracticeFormTest extends TestBase{
     @Test
     void practiceFromTest(){
         open("https://demoqa.com/automation-practice-form");
