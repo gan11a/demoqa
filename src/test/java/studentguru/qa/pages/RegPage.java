@@ -1,14 +1,10 @@
 package studentguru.qa.pages;
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-
 public class RegPage {
     Faker faker = new Faker();
     String firstName = faker.name().firstName();
@@ -16,7 +12,6 @@ public class RegPage {
     String userEmail = faker.internet().emailAddress();
     String phoneNumber = faker.phoneNumber().subscriberNumber(10);
     String userAddress = faker.address().streetAddress();
-
     private SelenideElement
             formTitle = $(".practice-form-wrapper"),
             firstNameIn = $("#firstName"),
@@ -47,17 +42,12 @@ public class RegPage {
             chckAddress = $x("//td[text()='Address']/following-sibling::td"),
             chckState = $x("//td[text()='State and City']/following-sibling::td");
 
-
     private String FORM_TITLE = "Student Registration Form";
-
     public void openPage(){
         open("https://demoqa.com/automation-practice-form");
         formTitle.shouldHave(text(FORM_TITLE));
     }
-
-    public void typeFirstName(){
-        firstNameIn.setValue(firstName);
-    }
+    public void typeFirstName(){firstNameIn.setValue(firstName);}
     public void typeLastName(){lastNameIn.setValue(lastName);}
     public void typeUserEmail(){userEmailIn.setValue(userEmail);}
     public void clickGender(){
@@ -108,31 +98,4 @@ public class RegPage {
     public void checkPic() {chckPic.shouldHave(text("test.jpg"));}
     public void checkAddress() {chckAddress.shouldHave(text(userAddress));}
     public void checkState() {chckState.shouldHave(text("NCR Gurgaon"));}
-
-    //$x("//td[text()='State and C
-    // ity']/following-sibling::td").shouldHave(text("NCR Gurgaon"));
-    //$x("//td[text()='Address']/following-sibling::td").shouldHave(text("Pushkina|Kolotushkina"));
-    //$x("//td[text()='Picture']/following-sibling::td").shouldHave(text("test.jpg"));
-    //$x("//td[text()='Hobbies']/following-sibling::td").shouldHave(text("Reading"));
-    //$x("//td[text()='Subjects']/following-sibling::td").shouldHave(text("Maths"));
-    //$x("//td[text()='Date of Birth']/following-sibling::td").shouldHave(text("05 August,1900"));
-    //$x("//td[text()='Mobile']/following-sibling::td").shouldHave(text("7925000000"));
-    //$x("//td[text()='Gender']/following-sibling::td").shouldHave(text("Male"));
-    //$x("//td[text()='Student Email']/following-sibling::td").shouldHave(text("gan1a@test.com"));
-    //$x("//td[text()='Student Name']/following-sibling::td").shouldHave(text("gan1a1 gan1a2"));
-    //$(".modal-content").shouldBe(Condition.visible);
-    //$("#submit").scrollTo().click();
-    //$("#city").find("input").setValue("Gurgaon").pressEnter();
-    //$("#state").find("input").setValue("NCR").pressEnter();
-    //$("#currentAddress").setValue("Pushkina|Kolotushkina");
-    //$("#uploadPicture").uploadFile(new File("myfilePackage" + File.separator + "test.jpg"));
-    //$("[for=hobbies-checkbox-2]").click();
-    //$("#subjectsContainer").find("input").setValue("Math").pressEnter();
-    //$x("//*[@class='react-datepicker__day react-datepicker__day--005 react-datepicker__day--weekend']").click();
-    //$(".react-datepicker__year-select").selectOption("1900");
-    //$(".react-datepicker__month-select").selectOption("August");
-    //$("#dateOfBirthInput").click();
-    //$("#userNumber").setValue("7925000000");
-    //$("#userEmail").setValue("gan1a@test.com");
-    //$("[for=gender-radio-1]").click();
 }

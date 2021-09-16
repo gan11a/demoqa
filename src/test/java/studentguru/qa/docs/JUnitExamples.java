@@ -1,7 +1,5 @@
 package studentguru.qa.docs;
-
 import org.junit.jupiter.api.*;
-
 public class JUnitExamples {
     @BeforeAll
     static void beforeAll(){
