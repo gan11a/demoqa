@@ -15,11 +15,11 @@ public class PracticeFormTest extends TestBase{
     @Test
     void practiceFromTest(){
         regPage.openPage();
-        regPage.typeFirstName("gan1a1");
-        regPage.typeLastName("gan1a2");
-        regPage.typeUserEmail("gan1a@test.com");
+        regPage.typeFirstName();
+        regPage.typeLastName();
+        regPage.typeUserEmail();
         regPage.clickGender();
-        regPage.typeUserNumber("7925000000");
+        regPage.typeUserNumber();
         regPage.clickBD();
         regPage.selectMonth();
         regPage.selectYear();
@@ -27,7 +27,7 @@ public class PracticeFormTest extends TestBase{
         regPage.containerValue();
         regPage.checkHobbies();
         regPage.uploadPic();
-        regPage.typeAddress("Pushkina|Kolotushkina");
+        regPage.typeAddress();
         regPage.chooseState();
         regPage.chooseCity();
         regPage.clickSubmit();
@@ -41,6 +41,6 @@ public class PracticeFormTest extends TestBase{
         regPage.checkHobbie();
         regPage.checkPic();
         regPage.checkAddress();
-        regPage.chooseState();
+        regPage.checkState();
     }
 }

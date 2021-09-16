@@ -2,6 +2,7 @@ package studentguru.qa.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 
 import java.io.File;
 
@@ -9,6 +10,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegPage {
+    Faker faker = new Faker();
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String userEmail = faker.internet().emailAddress();
+    String phoneNumber = faker.phoneNumber().subscriberNumber(10);
+    String userAddress = faker.address().streetAddress();
+
     private SelenideElement
             formTitle = $(".practice-form-wrapper"),
             firstNameIn = $("#firstName"),
@@ -47,20 +55,16 @@ public class RegPage {
         formTitle.shouldHave(text(FORM_TITLE));
     }
 
-    public void typeFirstName(String value){
-        firstNameIn.setValue(value);
+    public void typeFirstName(){
+        firstNameIn.setValue(firstName);
     }
-    public void typeLastName(String value){
-        lastNameIn.setValue(value);
-    }
-    public void typeUserEmail(String value){
-        userEmailIn.setValue(value);
-    }
+    public void typeLastName(){lastNameIn.setValue(lastName);}
+    public void typeUserEmail(){userEmailIn.setValue(userEmail);}
     public void clickGender(){
         clGender.click();
     }
-    public void typeUserNumber(String value){
-        userNumberIn.setValue(value);
+    public void typeUserNumber(){
+        userNumberIn.setValue(phoneNumber);
     }
     public void clickBD (){
         clBD.click();
@@ -68,23 +72,19 @@ public class RegPage {
     public void selectMonth(){
         slctMonth.selectOption("August");
     }
-    public void selectYear(){
-        slctYear.selectOption("1900");
-    }
+    public void selectYear(){slctYear.selectOption("1900");}
     public void selectDate(){
         slctDate.click();
     }
     public void containerValue() {
         ctnrValue.find("input").setValue("Math").pressEnter();
     }
-    public void checkHobbies() {
-        chckHobbies.click();
-    }
+    public void checkHobbies() {chckHobbies.click();}
     public void uploadPic() {
         upldPic.uploadFile(new File("myfilePackage" + File.separator + "test.jpg"));
     }
-    public void typeAddress(String value) {
-        addressIn.setValue(value);
+    public void typeAddress() {
+        addressIn.setValue(userAddress);
     }
     public void chooseState() {
         chsState.find("input").setValue("NCR").pressEnter();
@@ -98,18 +98,19 @@ public class RegPage {
     public void checkModal() {
         chckModal.shouldBe(Condition.visible);
     }
-    public void checkNames() {chckNames.shouldHave(text("gan1a1 gan1a2"));}
-    public void checkEmail() {chckEmail.shouldHave(text("gan1a@test.com"));}
+    public void checkNames() {chckNames.shouldHave(text(firstName + " " + lastName));}
+    public void checkEmail() {chckEmail.shouldHave(text(userEmail));}
     public void checkGender() {chckGender.shouldHave(text("Male"));}
-    public void checkMobile() {chckMobile.shouldHave(text("7925000000"));}
+    public void checkMobile() {chckMobile.shouldHave(text(phoneNumber));}
     public void checkDOB() {chckDOB.shouldHave(text("05 August,1900"));}
     public void checkSubj() {chckSubj.shouldHave(text("Maths"));}
     public void checkHobbie() {chckHobbie.shouldHave(text("Reading"));}
     public void checkPic() {chckPic.shouldHave(text("test.jpg"));}
-    public void checkAddress() {chckAddress.shouldHave(text("Pushkina|Kolotushkina"));}
-    public void checkState() {chckAddress.shouldHave(text("NCR Gurgaon"));}
+    public void checkAddress() {chckAddress.shouldHave(text(userAddress));}
+    public void checkState() {chckState.shouldHave(text("NCR Gurgaon"));}
 
-    //$x("//td[text()='State and City']/following-sibling::td").shouldHave(text("NCR Gurgaon"));
+    //$x("//td[text()='State and C
+    // ity']/following-sibling::td").shouldHave(text("NCR Gurgaon"));
     //$x("//td[text()='Address']/following-sibling::td").shouldHave(text("Pushkina|Kolotushkina"));
     //$x("//td[text()='Picture']/following-sibling::td").shouldHave(text("test.jpg"));
     //$x("//td[text()='Hobbies']/following-sibling::td").shouldHave(text("Reading"));
