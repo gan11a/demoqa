@@ -1,45 +1,47 @@
 package studentguru.qa.tests;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import jdk.nashorn.internal.runtime.RewriteException;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import studentguru.qa.pages.RegPage;
-import java.io.File;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+
 public class PracticeFormTest extends TestBase{
     RegPage regPage = new RegPage();
+
+    Faker faker = new Faker();
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String userEmail = faker.internet().emailAddress();
+    String phoneNumber = faker.phoneNumber().subscriberNumber(10);
+    String userAddress = faker.address().streetAddress();
+
     @Test
     void practiceFromTest(){
         regPage.openPage();
-        regPage.typeFirstName();
-        regPage.typeLastName();
-        regPage.typeUserEmail();
+        regPage.typeFirstName(firstName);
+        regPage.typeLastName(lastName);
+        regPage.typeUserEmail(userEmail);
         regPage.clickGender();
-        regPage.typeUserNumber();
-        regPage.clickBD();
+        regPage.typeUserNumber(phoneNumber);
+        regPage.clickBirthDay();
         regPage.selectMonth();
         regPage.selectYear();
         regPage.selectDate();
         regPage.containerValue();
-        regPage.checkHobbies();
-        regPage.uploadPic();
-        regPage.typeAddress();
+        regPage.selectHobbies2();
+        regPage.uploadPicture("images/test.jpg");
+        regPage.typeAddress(userAddress);
         regPage.chooseState();
         regPage.chooseCity();
         regPage.clickSubmit();
         regPage.checkModal();
-        regPage.checkNames();
-        regPage.checkEmail();
+        regPage.checkNames(firstName + " " + lastName);
+        regPage.checkEmail(userEmail);
         regPage.checkGender();
-        regPage.checkMobile();
-        regPage.checkDOB();
-        regPage.checkSubj();
+        regPage.checkMobile(phoneNumber);
+        regPage.checkDateOfBirth();
+        regPage.checkSubject();
         regPage.checkHobbie();
-        regPage.checkPic();
-        regPage.checkAddress();
+        regPage.checkPicture();
+        regPage.checkAddress(userAddress);
         regPage.checkState();
     }
 }
