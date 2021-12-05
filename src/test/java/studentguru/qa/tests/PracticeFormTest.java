@@ -19,7 +19,7 @@ public class PracticeFormTest extends TestBase{
         regPage.typeFirstName(firstName);
         regPage.typeLastName(lastName);
         regPage.typeUserEmail(userEmail);
-        regPage.clickGender();
+        regPage.clickMaleGender();
         regPage.typeUserNumber(phoneNumber);
         regPage.clickBirthDay();
         regPage.selectMonth();

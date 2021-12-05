@@ -17,3 +17,4 @@ target/
 /gradlew.bat
 .todo
 *.properties
+/TextBox Tests.java

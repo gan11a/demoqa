@@ -53,7 +53,7 @@ public class RegPage {
     public void typeUserEmail(String value){
         userEmailIn.setValue(value);
     }
-    public void clickGender(){
+    public void clickMaleGender(){
         GenderMale.click();
     }
     public void typeUserNumber(String value){
